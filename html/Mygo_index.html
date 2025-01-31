@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mygo!!!!! X Ave Mujica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="" href="../css/Mygo_css.css">
+</head>
+
+<body>
+    <!-- 標題和搜尋列 -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex" href="#"><img id="logo" style="width: 350px;" src="Logo.png"></p></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav mx-auto">
+                    <form class="d-flex">
+                        <input class="form-control me-2" id="search_text" size="40" type="search" placeholder="搜尋圖片">
+                        <button class="btn btn-outline-primary" type="button" onclick="search()">Search</button>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar2">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mx-auto navbar_button2">
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.千早愛音')" type="button">千早愛音</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.長崎爽世')" type="button">長崎爽世</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.椎名立希')" type="button">椎名立希</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.高松燈')" type="button">高松燈</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.要樂奈')" type="button">要樂奈</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.豐川祥子')"type="button">豐川祥子</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.三角初華')" type="button">三角初華</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.祐天寺若麥')" type="button">祐天寺若麥</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.八幡海鈴')" type="button">八幡海鈴</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('.若葉睦')" type="button">若葉睦</button>
+                    <button class="btn btn-outline-danger navbar_button2" onclick="cancel('顯示全部')" type="button">顯示全部</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 圖片放大 -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img">
+    </div>
+    <!-- 內容圖片 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希全是祥子的錯吧" id="test"><!-- Img1 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img1" src="https://i.imgur.com/gUrXPew.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img1')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img1')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音來，開始溝通吧"><!-- Img2 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img2" src="https://i.imgur.com/86rfPMu.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img2')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img2')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 要樂奈" title="要樂奈不一起玩嗎"><!-- Img3 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img3" src="https://i.imgur.com/wo1t1PD.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img3')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img3')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子我們沒有什麼好談的"><!-- Img4 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img4" src="https://i.imgur.com/cLajSJk.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img4')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img4')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子不要再和我扯上關係了"><!-- Img5 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img5" src="https://i.imgur.com/FSpU5Ex.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img5')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img5')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音我的C和弦怎麼樣呀"><!-- Img6 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img6" src="https://i.imgur.com/6aFlWz0.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img6')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img6')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希這傢伙真的很讓人不爽耶"><!-- Img7 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img7" src="https://i.imgur.com/WMVfuQR.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img7')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img7')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 三角初華" title="三角初華真是累慘了"><!-- Img8 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img8" src="https://i.imgur.com/czbC1cY.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img8')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img8')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音未免也太霸道了"><!-- Img9 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img9" src="https://i.imgur.com/v89Iee6.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img9')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img9')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 若葉睦" title="若葉睦真的嗎?"><!-- Img10 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img10" src="https://i.imgur.com/jM8LC49.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img10')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img10')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 八幡海鈴" title="八幡海鈴真是太好了"><!-- Img11 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img11" src="https://i.imgur.com/1pcSi0K.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img11')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img11')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音每次講話都好沉重喔"><!-- Img12 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img12" src="https://i.imgur.com/lC7UMBR.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img12')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img12')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希吵死了"><!-- Img13 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img13" src="https://i.imgur.com/gebVP9H.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img13')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img13')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音洗澡浴室微笑"><!-- Img14 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img14" src="https://i.imgur.com/QmnoQhn.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img14')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img14')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音請問...那我呢?"><!-- Img15 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img15" src="https://i.imgur.com/SiLgKRq.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img15')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img15')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希今天放假"><!-- Img16 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img16" src="https://i.imgur.com/zYCVcUw.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img16')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img16')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 長崎爽世" title="長崎爽世這次我們大家一定要好好溝通"><!-- Img17 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img17" src="https://i.imgur.com/8oWPBpB.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img17')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img17')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希我發誓"><!-- Img18 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img18" src="https://i.imgur.com/8BRlMm7.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img18')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img18')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 高松燈" title="高松燈一輩子在一起吧"><!-- Img19 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img19" src="https://i.imgur.com/iwUGPYf.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img19')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img19')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 三角初華" title="三角初華主唱是在拚什麼啦"><!-- Img20 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img20" src="https://i.imgur.com/cOwEMyN.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img20')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img20')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 長崎爽世" title="長崎爽世我們沒辦法再重新開始嗎"><!-- Img21 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img21" src="https://i.imgur.com/vzO36ek.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img21')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img21')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 長崎爽世" title="長崎爽世這不是任何人的錯"><!-- Img22 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img22" src="https://i.imgur.com/m4E8DYq.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img22')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img22')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音因為春日影是一首好歌"><!-- Img23 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img23" src="https://i.imgur.com/p2b41ge.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img23')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img23')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子我會寫出一首配得上燈的歌詞的曲子"><!-- Img24 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img24" src="https://i.imgur.com/2sowFwu.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img24')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img24')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子我要退出CRYCHIC"><!-- Img25 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img25" src="https://i.imgur.com/RiDM7lM.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img25')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img25')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 長崎爽世" title="長崎爽世小睦在笑耶"><!-- Img26 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img26" src="https://i.imgur.com/S5PoqWx.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img26')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img26')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子我好想!成為人類啊!"><!-- Img27 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img27" src="https://i.imgur.com/fTdtuKx.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img27')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img27')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子一起共同演奏音樂的命運共同體了"><!-- Img28 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img28" src="https://i.imgur.com/QVXY7fd.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img28')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img28')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子從今以後我們就是樂團"><!-- Img29 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img29" src="https://i.imgur.com/Q8TliCn.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img29')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img29')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希幹嘛?"><!-- Img30 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img30" src="https://i.imgur.com/nIZYwQs.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img30')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img30')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子讓我深深受到感動"><!-- Img31 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img31" src="https://i.imgur.com/LXuCb7b.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img31')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img31')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希妳為什麼在這裡?"><!-- Img32 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img32" src="https://i.imgur.com/weZbTWW.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img32')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img32')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子我以前很常用獨角仙的那本"><!-- Img33 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img33" loading="lazy" src="https://i.imgur.com/9P3ybk4.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img33')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img33')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音態度好差喔"><!-- Img34 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img34" loading="lazy" src="https://i.imgur.com/k0YUVPX.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img34')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img34')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子真好喝"><!-- Img35 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img35" loading="lazy" src="https://i.imgur.com/tJFPLL1.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img35')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img35')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音要不要一起組樂團?"><!-- Img36 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img36" loading="lazy" src="https://i.imgur.com/Sjgm8tb.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img36')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img36')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音太棒了,爽世同學LOVE!"><!-- Img37 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img37" loading="lazy" src="https://i.imgur.com/R19OUfV.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img37')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img37')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子事情都搞砸了"><!-- Img38 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img38" loading="lazy" src="https://i.imgur.com/A4H7JgO.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img38')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img38')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子妳不能當別人的傳聲筒"><!-- Img39 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img39" loading="lazy" src="https://i.imgur.com/aHwmsmK.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img39')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img39')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音張嘴蛤"><!-- Img40 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img40" loading="lazy" src="https://i.imgur.com/LkB9ofn.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img40')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img40')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 高松燈" title="高松燈掰掰"><!-- Img41 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img41" loading="lazy" src="https://i.imgur.com/smDOBlk.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img41')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img41')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希差勁"><!-- Img42 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img42" loading="lazy" src="https://i.imgur.com/0vwCHwG.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img42')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img42')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音味道醇香,我很喜歡"><!-- Img43 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img43" loading="lazy" src="https://i.imgur.com/3FvsHbj.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img43')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img43')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音好厲害..."><!-- Img44 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img44" loading="lazy" src="https://i.imgur.com/IyA9SKT.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img44')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img44')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音早安"><!-- Img45 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img45" loading="lazy" src="https://i.imgur.com/B66rK4D.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img45')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img45')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希妳到底想幹嘛?"><!-- Img46 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img46" loading="lazy" src="https://i.imgur.com/H57MJux.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img46')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img46')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音是又怎樣"><!-- Img47 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img47" loading="lazy" src="https://i.imgur.com/qki3usP.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img47')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img47')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 椎名立希" title="椎名立希妳想幹嘛"><!-- Img48 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img48" loading="lazy" src="https://i.imgur.com/I8OqKhu.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img48')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img48')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子不要講這種撒嬌的話了"><!-- Img49 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img49" loading="lazy" src="https://i.imgur.com/q1na7fL.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img49')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img49')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 若葉睦" title="若葉睦從來不覺得玩樂團開心過"><!-- Img50 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img50" loading="lazy" src="https://i.imgur.com/EQeiM8I.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img50')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img50')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 高松燈" title="高松燈一輩子和我一起組樂團嗎"><!-- Img51 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img51" loading="lazy" src="https://i.imgur.com/7nAgEzb.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img51')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img51')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 長崎爽世" title="長崎爽世這不是小睦的錯"><!-- Img52 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img52" loading="lazy" src="https://i.imgur.com/tWF5Rcq.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img52')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img52')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 千早愛音" title="千早愛音人生這麼漫長會撐不住的喔"><!-- Img53 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img53" loading="lazy" src="https://i.imgur.com/21kSEId.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img53')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img53')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子我今天是來講一件事的"><!-- Img54 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img54" loading="lazy" src="https://i.imgur.com/1pdScWS.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img54')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img54')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 高松燈" title="高松燈妳真的要退出了嗎"><!-- Img55 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img55" loading="lazy" src="https://i.imgur.com/4sSOEJH.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img55')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img55')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 長崎爽世" title="長崎爽世先冷靜下來談談吧,好嗎"><!-- Img56 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img56" loading="lazy" src="https://i.imgur.com/87xXpqD.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img56')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img56')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-12 all_img 豐川祥子" title="豐川祥子是我自己的問題"><!-- Img57 -->
+                <div class="card">
+                    <img class="card-img-top" id="Img57" loading="lazy" src="https://i.imgur.com/tqf6QOT.jpg">
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-outline-primary" onclick="download_img('Img57')">下載</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="copy('Img57')">複製網址</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../script/script1.js"></script>
+</body>
+
+</html>
