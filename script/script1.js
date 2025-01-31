@@ -65,17 +65,36 @@ function cancel(button_select_id) { //選擇特定角色button
   }
 }
 
-function search(){ //搜尋圖片
+function search() { //搜尋圖片
   var search_text = document.getElementById('search_text');
   var all_img = document.querySelectorAll('.all_img');
   var i
-  for(i=0;i<all_img.length;i++){
-    if(all_img[i].title.includes(search_text.value)){
+  for (i = 0; i < all_img.length; i++) {
+    if (all_img[i].title.includes(search_text.value)) {
       all_img[i].style.display = "block";
     }
-    else{
+    else {
       all_img[i].style.display = "none";
     }
   }
-  search_text.value='';
+  search_text.value = '';
 }
+
+const input = document.querySelector('input'); //按enter搜尋
+input.addEventListener('keydown', function (event) {
+  var search_text = document.getElementById('search_text');
+  var all_img = document.querySelectorAll('.all_img');
+  var i
+  if (event.key == "Enter") {
+    console.log(event.key)
+    for (i = 0; i < all_img.length; i++) {
+      if (all_img[i].title.includes(search_text.value)) {
+        all_img[i].style.display = "block";
+      }
+      else {
+        all_img[i].style.display = "none";
+      }
+    }
+    search_text.value = '';
+  }
+});
