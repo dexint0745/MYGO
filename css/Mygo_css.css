@@ -8,13 +8,13 @@ body {
     background: linear-gradient(180deg, azure 0%, rgb(87, 185, 218) 100%);
 }
 
-.nav-item:nth-child(1){
+.nav-item:nth-child(1) {
     order: 2;
 }
 
 .nav-item:nth-child(2) {
     order: 1;
-  }
+}
 
 .navbar-brand:hover {
     transform: scale(1.05, 1.05);
@@ -24,6 +24,13 @@ body {
     margin-left: 5px;
     margin-top: 3px;
 }
+
+@media (max-width: 995px) {
+    .navbar-toggler {
+      font-size: 1.5rem;  /* 增大切換按鈕的字體 */
+      padding: 0.5rem 1rem; /* 增加切換按鈕內邊距 */
+    }
+  }
 
 /*內容圖片*/
 .card {

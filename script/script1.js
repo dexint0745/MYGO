@@ -63,10 +63,11 @@ function cancel(button_select_id) { //選擇特定角色button
       apppint_img[i].style.display = "block";
     }
   }
-  if(document.body.offsetWidth<995){
-  var navbar_toggler = document.querySelector(".navbar-toggler");
-  navbar_toggler.click();
+  if (document.body.offsetWidth < 995) {
+    var navbar_toggler = document.querySelector(".navbar-toggler");
+    navbar_toggler.click();
   }
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 function search() { //搜尋圖片
@@ -82,10 +83,11 @@ function search() { //搜尋圖片
     }
   }
   search_text.value = '';
-  if(document.body.offsetWidth<995){
+  if (document.body.offsetWidth < 995) {
     var navbar_toggler = document.querySelector(".navbar-toggler");
     navbar_toggler.click();
-    }
+  }
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 const input = document.querySelector('input'); //按enter搜尋
@@ -104,11 +106,25 @@ input.addEventListener('keydown', function (event) {
       }
     }
     search_text.value = '';
-    if(document.body.offsetWidth<995){
+    if (document.body.offsetWidth < 995) {
       var navbar_toggler = document.querySelector(".navbar-toggler");
       navbar_toggler.click();
-      }
+    }
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 });
 
-
+var navbar_button = document.querySelectorAll('.navbar_button');
+window.onresize = function () {
+  console.log(window.innerWidth)
+  if (window.innerWidth < 995) {
+    for (var i = 0; i < navbar_button.length; i++) {
+      navbar_button[i].classList.add('btn-lg')
+    }
+  }
+  else{
+    for (var i = 0; i < navbar_button.length; i++) {
+      navbar_button[i].classList.remove('btn-lg')
+    }
+  }
+}
