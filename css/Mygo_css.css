@@ -30,10 +30,10 @@ body {
         font-size: 3rem;
         padding: 1rem 1.5rem;
     }
-    .navbar_button {
+    .navbar_button,.search_button,#search_text{
         margin-left: 5px;
         margin-top: 3px;
-        font-size: 2rem;
+        font-size: 3rem;
         padding: 0.5rem 1rem;
     }
 }
