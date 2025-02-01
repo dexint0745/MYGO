@@ -125,13 +125,24 @@ window.onresize = function () {
     }
   }
 }
-
-function navbar_toggler_click(){ //背景點擊關閉navbar-collapse
-  modal.style.display = "block";
-  document.body.style.overflow = 'hidden';
+var navbar_toggler_click_bool = true
+function navbar_toggler_click() { //背景點擊關閉navbar-collapse
+  if (!navbar_toggler_click_bool) {
+    modal.style.display = "none";
+    document.body.style.overflow = 'visible';
+    navbar_toggler_click_bool = true;
+  }
+  else{
+    modal.style.display = "block";
+    document.body.style.overflow = 'hidden';
+    navbar_toggler_click_bool = false;
+  }
 }
-function myModal_click(){
-  navbar_toggler.click();
-  modal.style.display = "none";
-  document.body.style.overflow = 'visible';
+function myModal_click() {
+  if (!navbar_toggler_click_bool) {
+    navbar_toggler.click();
+    modal.style.display = "none";
+    document.body.style.overflow = 'visible';
+    navbar_toggler_click_bool = true;
+  }
 }
