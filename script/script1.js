@@ -114,9 +114,8 @@ input.addEventListener('keydown', function (event) {
   }
 });
 
-var navbar_button = document.querySelectorAll('.navbar_button');
+var navbar_button = document.querySelectorAll('.navbar_button');//新增navbar_button class
 window.onresize = function () {
-  console.log(window.innerWidth)
   if (window.innerWidth < 995) {
     for (var i = 0; i < navbar_button.length; i++) {
       navbar_button[i].classList.add('btn-lg')
