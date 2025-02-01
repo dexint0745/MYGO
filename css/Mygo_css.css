@@ -8,14 +8,6 @@ body {
     background: linear-gradient(180deg, azure 0%, rgb(87, 185, 218) 100%);
 }
 
-.nav-item:nth-child(1) {
-    order: 2;
-}
-
-.nav-item:nth-child(2) {
-    order: 1;
-}
-
 .navbar-brand:hover {
     transform: scale(1.05, 1.05);
 }
@@ -33,6 +25,10 @@ body {
     .navbar_button,.search_button,#search_text{
         margin-left: 5px;
         margin-top: 3px;
+        font-size: 3rem;
+        padding: 0.5rem 1rem;
+    }
+    .img_button{
         font-size: 3rem;
         padding: 0.5rem 1rem;
     }
@@ -62,7 +58,7 @@ body {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 200px;
     left: 0;
     top: 0;
     width: 100%;
@@ -92,23 +88,6 @@ body {
     to {
         transform: scale(1)
     }
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {

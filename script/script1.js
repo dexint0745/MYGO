@@ -6,21 +6,18 @@ document.body.onclick = function (event) {
   img = event.target.id;
   if (close_img == false) { //點擊關閉放大圖片
     modal.style.display = "none";
+    document.body.style.overflow = 'visible';
     close_img = true;
   }
   if (img != '' && close_img == true) {  //開啟放大圖片
     img = document.getElementById(event.target.id).className;
-    if (img == "card-img-top") {
+    if (img == "card-img-top" && window.innerWidth > 995) {
       modal.style.display = "block";
       modalImg.src = event.target.src;
+      document.body.style.overflow = 'hidden';
       close_img = false;
     }
   }
-}
-
-var span = document.getElementsByClassName("close")[0]; //右上角關閉放大圖片功能
-span.onclick = function () {
-  modal.style.display = "none";
 }
 
 function copy(img_url_id) { //複製圖片網址
@@ -47,6 +44,7 @@ function download_img(download_img_id) {  //下載圖片
   img.src = download_img_url;
 }
 
+var navbar_toggler = document.querySelector(".navbar-toggler");
 function cancel(button_select_id) { //選擇特定角色button
   var all_img = document.querySelectorAll(".all_img");
   var apppint_img = document.querySelectorAll(button_select_id);
@@ -64,8 +62,8 @@ function cancel(button_select_id) { //選擇特定角色button
     }
   }
   if (document.body.offsetWidth < 995) {
-    var navbar_toggler = document.querySelector(".navbar-toggler");
     navbar_toggler.click();
+    modal.style.display = "none";
   }
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
@@ -84,8 +82,8 @@ function search() { //搜尋圖片
   }
   search_text.value = '';
   if (document.body.offsetWidth < 995) {
-    var navbar_toggler = document.querySelector(".navbar-toggler");
     navbar_toggler.click();
+    modal.style.display = "none";
   }
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
@@ -107,8 +105,8 @@ input.addEventListener('keydown', function (event) {
     }
     search_text.value = '';
     if (document.body.offsetWidth < 995) {
-      var navbar_toggler = document.querySelector(".navbar-toggler");
       navbar_toggler.click();
+      modal.style.display = "none";
     }
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
@@ -121,9 +119,19 @@ window.onresize = function () {
       navbar_button[i].classList.add('btn-lg')
     }
   }
-  else{
+  else {
     for (var i = 0; i < navbar_button.length; i++) {
       navbar_button[i].classList.remove('btn-lg')
     }
   }
+}
+
+function navbar_toggler_click(){ //背景點擊關閉navbar-collapse
+  modal.style.display = "block";
+  document.body.style.overflow = 'hidden';
+}
+function myModal_click(){
+  navbar_toggler.click();
+  modal.style.display = "none";
+  document.body.style.overflow = 'visible';
 }
