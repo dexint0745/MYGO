@@ -4,8 +4,7 @@ body {
 
 /*標題和搜尋列*/
 .navbar {
-    background-color: azure;
-    background: linear-gradient(180deg, azure 0%, rgb(87, 185, 218) 100%);
+    background: linear-gradient(180deg, rgb(7, 34, 37) 0%, rgb(1, 24, 32) 100%);
 }
 
 .navbar-brand:hover {
@@ -40,7 +39,7 @@ body {
 }
 
 .card-footer {
-    background-color: rgb(56, 55, 55);
+    background-color: rgb(41, 40, 40);
 }
 
 /* 圖片放大 */
