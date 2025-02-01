@@ -63,6 +63,10 @@ function cancel(button_select_id) { //選擇特定角色button
       apppint_img[i].style.display = "block";
     }
   }
+  if(document.body.offsetWidth<995){
+  var navbar_toggler = document.querySelector(".navbar-toggler");
+  navbar_toggler.click();
+  }
 }
 
 function search() { //搜尋圖片
@@ -78,6 +82,10 @@ function search() { //搜尋圖片
     }
   }
   search_text.value = '';
+  if(document.body.offsetWidth<995){
+    var navbar_toggler = document.querySelector(".navbar-toggler");
+    navbar_toggler.click();
+    }
 }
 
 const input = document.querySelector('input'); //按enter搜尋
@@ -96,5 +104,11 @@ input.addEventListener('keydown', function (event) {
       }
     }
     search_text.value = '';
+    if(document.body.offsetWidth<995){
+      var navbar_toggler = document.querySelector(".navbar-toggler");
+      navbar_toggler.click();
+      }
   }
 });
+
+

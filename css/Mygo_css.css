@@ -1,31 +1,39 @@
 body {
     background-color: rgb(29, 26, 26);
 }
+
 /*標題和搜尋列*/
 .navbar {
     background-color: azure;
     background: linear-gradient(180deg, azure 0%, rgb(87, 185, 218) 100%);
 }
+
+.nav-item:nth-child(1){
+    order: 2;
+}
+
+.nav-item:nth-child(2) {
+    order: 1;
+  }
+
 .navbar-brand:hover {
     transform: scale(1.05, 1.05);
 }
 
-.navbar2 {
-    background-color: azure;
-    background: linear-gradient(180deg, azure 0%, rgb(233, 132, 228) 100%);
-}
-.navbar_button2{
+.navbar_button {
     margin-left: 5px;
     margin-top: 3px;
 }
 
 /*內容圖片*/
-.card{
+.card {
     margin: 5px;
 }
+
 .card-footer {
     background-color: rgb(56, 55, 55);
 }
+
 /* 圖片放大 */
 .card-img-top {
     border-radius: 5px;

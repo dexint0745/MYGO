@@ -15,54 +15,49 @@
 
 <body>
     <!-- 標題和搜尋列 -->
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar fixed-top navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand d-flex" href="#"><img id="logo" style="width: 350px;" src="Logo.png"></p></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar1">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav mx-auto">
+                    <button class="btn btn-outline-danger navbar_button  .nav-item" onclick="cancel('.千早愛音')"
+                        type="button">千早愛音</button>
+                    <button class="btn btn-outline-danger navbar_button  .nav-item" onclick="cancel('.長崎爽世')"
+                        type="button">長崎爽世</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.椎名立希')"
+                        type="button">椎名立希</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.高松燈')"
+                        type="button">高松燈</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.要樂奈')"
+                        type="button">要樂奈</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.豐川祥子')"
+                        type="button">豐川祥子</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.三角初華')"
+                        type="button">三角初華</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.祐天寺若麥')"
+                        type="button">祐天寺若麥</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.八幡海鈴')"
+                        type="button">八幡海鈴</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('.若葉睦')"
+                        type="button">若葉睦</button>
+                    <button class="btn btn-outline-danger navbar_button" onclick="cancel('顯示全部')"
+                        type="button">顯示全部</button>
+                </ul>
                 <ul class="navbar-nav ms-auto">
-                    <div class="d-flex">
-                        <input class="form-control me-2" id="search_text" size="40" type="search" placeholder="搜尋圖片">
-                        <button class="btn btn-outline-primary btn-lg btn-lg" type="button"
-                            onclick="search()">Search</button>
+                    <div class="d-flex p-1">
+                        <input class="form-control me-2" id="search_text" size="30" type="search" placeholder="搜尋圖片">
+                        <button class="btn btn-outline-primary" type="button" onclick="search()">Search</button>
                     </div>
                 </ul>
             </div>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg navbar2">
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="navbar-nav mx-auto navbar_button2">
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.千早愛音')"
-                        type="button">千早愛音</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.長崎爽世')"
-                        type="button">長崎爽世</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.椎名立希')"
-                        type="button">椎名立希</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.高松燈')"
-                        type="button">高松燈</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.要樂奈')"
-                        type="button">要樂奈</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.豐川祥子')"
-                        type="button">豐川祥子</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.三角初華')"
-                        type="button">三角初華</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.祐天寺若麥')"
-                        type="button">祐天寺若麥</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.八幡海鈴')"
-                        type="button">八幡海鈴</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('.若葉睦')"
-                        type="button">若葉睦</button>
-                    <button class="btn btn-outline-danger navbar_button2 btn-lg" onclick="cancel('顯示全部')"
-                        type="button">顯示全部</button>
-                </ul>
-            </div>
+            <a class="navbar-brand d-flex" href="#"><img id="logo" style="width: 350px;" src="Logo.png"></p></a>
         </div>
     </nav>
     <!-- 圖片放大 -->
