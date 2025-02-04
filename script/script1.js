@@ -21,33 +21,69 @@ document.body.onclick = function (event) {
 }
 
 function copy(img_url_id) {  //複製圖片/網址
-  /*var img_url = document.getElementById(img_url_id).src;
-  navigator.clipboard.writeText(img_url)*/
-  const imgpaint = new Image;
-  const c = document.createElement('canvas');
-  const ctx = c.getContext('2d');
-  var img_copy_src = document.getElementById(img_url_id).src;
-  function setCanvasImage(img_copy, func) {
-    imgpaint.onload = function () {
-      c.width = this.naturalWidth;
-      c.height = this.naturalHeight;
-      ctx.drawImage(this, 0, 0)
-      c.toBlob(blob => {
-        func(blob)
-      }, 'image/png')
+  if (navigator.clipboard) {
+    if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edg') === -1 && userAgent.indexOf('OPR') === -1) {
+      const imgpaint = new Image;
+      const c = document.createElement('canvas');
+      const ctx = c.getContext('2d');
+      var img_copy_src = document.getElementById(img_url_id).src;
+      function setCanvasImage(img_copy, func) {
+        imgpaint.onload = function () {
+          c.width = this.naturalWidth;
+          c.height = this.naturalHeight;
+          ctx.drawImage(this, 0, 0)
+          c.toBlob(blob => {
+            func(blob)
+          }, 'image/png')
+        }
+        imgpaint.crossOrigin = 'anonymous';
+        imgpaint.src = img_copy;
+      }
+      setCanvasImage(img_copy_src, (imgBlob) => {
+        navigator.clipboard.write(
+          [
+            new ClipboardItem({ 'image/png': imgBlob })
+          ]
+        )
+          .then(e => { console.log('Image copied to clipboard') })
+          .catch(e => { console.log(e) })
+      })
     }
-    imgpaint.crossOrigin = 'anonymous';
-    imgpaint.src = img_copy;
+    else if (userAgent.indexOf('Edge') > -1) {
+      const imgpaint = new Image;
+      const c = document.createElement('canvas');
+      const ctx = c.getContext('2d');
+      var img_copy_src = document.getElementById(img_url_id).src;
+      function setCanvasImage(img_copy, func) {
+        imgpaint.onload = function () {
+          c.width = this.naturalWidth;
+          c.height = this.naturalHeight;
+          ctx.drawImage(this, 0, 0)
+          c.toBlob(blob => {
+            func(blob)
+          }, 'image/png')
+        }
+        imgpaint.crossOrigin = 'anonymous';
+        imgpaint.src = img_copy;
+      }
+      setCanvasImage(img_copy_src, (imgBlob) => {
+        navigator.clipboard.write(
+          [
+            new ClipboardItem({ 'image/png': imgBlob })
+          ]
+        )
+          .then(e => { console.log('Image copied to clipboard') })
+          .catch(e => { console.log(e) })
+      })
+    }
+    else {
+      var img_url = document.getElementById(img_url_id).src;
+      navigator.clipboard.writeText(img_url)
+    }
   }
-  setCanvasImage(img_copy_src, (imgBlob) => {
-    navigator.clipboard.write(
-      [
-        new ClipboardItem({ 'image/png': imgBlob })
-      ]
-    )
-      .then(e => { console.log('Image copied to clipboard') })
-      .catch(e => { console.log(e) })
-  })
+  else{
+    alert('瀏覽器不支援複製圖片/網址')
+  }
 }
 
 function download_img(download_img_id) {  //下載圖片
@@ -171,3 +207,4 @@ function myModal_click() {
     navbar_toggler_click_bool = true;
   }
 }
+
