@@ -20,6 +20,9 @@ document.body.onclick = function (event) {
   }
 }
 
+
+const userAgent = navigator.userAgent;
+
 function copy(img_url_id) {  //複製圖片/網址
   if (navigator.clipboard) {
     if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edg') === -1 && userAgent.indexOf('OPR') === -1) {
