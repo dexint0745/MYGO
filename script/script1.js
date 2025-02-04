@@ -21,7 +21,9 @@ document.body.onclick = function (event) {
 }
 
 function copy(img_url_id) {  //複製圖片/網址
-  if (navigator.clipboard) {
+  var img_url = document.getElementById(img_url_id).src;
+  navigator.clipboard.writeText(img_url)
+  /*if (navigator.clipboard) {
     const imgpaint = new Image;
     const c = document.createElement('canvas');
     const ctx = c.getContext('2d');
@@ -48,9 +50,8 @@ function copy(img_url_id) {  //複製圖片/網址
         .catch(e => { alert(e) })
     })
   } else {
-    var img_url = document.getElementById(img_url_id).src;
-    navigator.clipboard.writeText(img_url)
-  }
+    
+  }*/
 }
 
 function download_img(download_img_id) {  //下載圖片
