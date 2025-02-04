@@ -20,39 +20,52 @@ document.body.onclick = function (event) {
   }
 }
 
-function copy(img_url_id) {  //複製圖片/網址
+/*function copy(img_url_id) {  //複製圖片/網址
   var img_url = document.getElementById(img_url_id).src;
   navigator.clipboard.writeText(img_url)
-  /*if (navigator.clipboard) {
-    const imgpaint = new Image;
-    const c = document.createElement('canvas');
-    const ctx = c.getContext('2d');
-    var img_copy_src = document.getElementById(img_url_id).src;
-    function setCanvasImage(img_copy, func) {
-      imgpaint.onload = function () {
-        c.width = this.naturalWidth;
-        c.height = this.naturalHeight;
-        ctx.drawImage(this, 0, 0)
-        c.toBlob(blob => {
-          func(blob)
-        }, 'image/png')
-      }
-      imgpaint.crossOrigin = 'anonymous';
-      imgpaint.src = img_copy;
+
+  const imgpaint = new Image;
+  const c = document.createElement('canvas');
+  const ctx = c.getContext('2d');
+  var img_copy_src = document.getElementById(img_url_id).src;
+  function setCanvasImage(img_copy, func) {
+    imgpaint.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0)
+      c.toBlob(blob => {
+        func(blob)
+      }, 'image/png')
     }
-    setCanvasImage(img_copy_src, (imgBlob) => {
-      navigator.clipboard.write(
-        [
-          new ClipboardItem({ 'image/png': imgBlob })
-        ]
-      )
-        .then(e => { alert('Image copied to clipboard') })
-        .catch(e => { alert(e) })
-    })
-  } else {
-    
-  }*/
-}
+    imgpaint.crossOrigin = 'anonymous';
+    imgpaint.src = img_copy;
+  }
+  setCanvasImage(img_copy_src, (imgBlob) => {
+    navigator.clipboard.write(
+      [
+        new ClipboardItem({ 'image/png': imgBlob })
+      ]
+    )
+      .then(e => { alert('Image copied to clipboard') })
+      .catch(e => { alert(e) })
+  })
+
+}*/
+
+document.querySelector("#copyButton").addEventListener("click", () => {
+  const textItem = new ClipboardItem({
+      "text/plain": new Blob(["這是要複製的文本"], { type: "text/plain" })
+  });
+
+  navigator.clipboard.write([textItem])
+      .then(() => {
+          alert("文本已成功寫入剪貼簿");
+      })
+      .catch(err => {
+          alert("無法寫入剪貼簿:", err);
+      });
+});
+
 
 function download_img(download_img_id) {  //下載圖片
   let cvs = document.createElement('canvas'),
