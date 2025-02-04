@@ -24,7 +24,7 @@ document.body.onclick = function (event) {
 function copy(img_url_id) {  //複製圖片/網址
   const userAgent = window.navigator.userAgent;
   if (navigator.clipboard) {
-    if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edg') === -1 && userAgent.indexOf('OPR') === -1) {
+    /*if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edg') === -1 && userAgent.indexOf('OPR') === -1) {
       const imgpaint = new Image;
       const c = document.createElement('canvas');
       const ctx = c.getContext('2d');
@@ -78,14 +78,15 @@ function copy(img_url_id) {  //複製圖片/網址
           .catch(e => { console.log(e) })
       })
     }
-    else {
+    else {*/
       var img_url = document.getElementById(img_url_id).src;
       navigator.clipboard.writeText(img_url)
-    }
+    /*}
   }
   else{
     alert('瀏覽器不支援複製圖片/網址')
-  }
+  }*/
+}
 }
 
 function download_img(download_img_id) {  //下載圖片
