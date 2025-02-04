@@ -21,7 +21,7 @@ document.body.onclick = function (event) {
 }
 
 
-function copy(img_url_id) {  //複製圖片/網址
+function copy(img_url_id) {  //複製圖片/ 網址
   const userAgent = window.navigator.userAgent;
   if (navigator.clipboard) {
     /*if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edg') === -1 && userAgent.indexOf('OPR') === -1) {
