@@ -20,10 +20,9 @@ document.body.onclick = function (event) {
   }
 }
 
-/*function copy(img_url_id) {  //複製圖片/網址
-  var img_url = document.getElementById(img_url_id).src;
-  navigator.clipboard.writeText(img_url)
-
+function copy(img_url_id) {  //複製圖片/網址
+  /*var img_url = document.getElementById(img_url_id).src;
+  navigator.clipboard.writeText(img_url)*/
   const imgpaint = new Image;
   const c = document.createElement('canvas');
   const ctx = c.getContext('2d');
@@ -49,28 +48,6 @@ document.body.onclick = function (event) {
       .then(e => { console.log('Image copied to clipboard') })
       .catch(e => { console.log(e) })
   })
-
-}*/
-
-
-async function writeClipImg() {
-  try {
-    if (ClipboardItem.supports("image/svg+xml")) {
-      const imgURL = "https://i.imgur.com/17noUY9.png";
-      const data = await fetch(imgURL);
-      const blob = await data.blob();
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          [blob.type]: blob,
-        }),
-      ]);
-      console.log("Fetched image copied.");
-    } else {
-      console.log("SVG images are not supported by the clipboard.");
-    }
-  } catch (err) {
-    console.error(err.name, err.message);
-  }
 }
 
 function download_img(download_img_id) {  //下載圖片
