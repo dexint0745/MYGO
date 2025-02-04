@@ -51,7 +51,7 @@ function copy(img_url_id) {  //複製圖片/網址
           .catch(e => { console.log(e) })
       })
     }
-    else if (userAgent.indexOf('Edge') > -1) {
+    else if (userAgent.indexOf('Edg') > -1) {
       const imgpaint = new Image;
       const c = document.createElement('canvas');
       const ctx = c.getContext('2d');
