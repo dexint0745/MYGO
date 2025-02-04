@@ -46,43 +46,32 @@ document.body.onclick = function (event) {
         new ClipboardItem({ 'image/png': imgBlob })
       ]
     )
-      .then(e => { alert('Image copied to clipboard') })
-      .catch(e => { alert(e) })
+      .then(e => { console.log('Image copied to clipboard') })
+      .catch(e => { console.log(e) })
   })
 
 }*/
 
-document.querySelector("#copyButton").addEventListener("click", () => {
-  /*var img_url = document.getElementById('Img207').src;
-  navigator.clipboard.writeText(img_url)*/
 
-  const imgpaint = new Image;
-  const c = document.createElement('canvas');
-  const ctx = c.getContext('2d');
-  var img_copy_src = document.getElementById('Img207').src;
-  function setCanvasImage(img_copy, func) {
-    imgpaint.onload = function () {
-      c.width = this.naturalWidth;
-      c.height = this.naturalHeight;
-      ctx.drawImage(this, 0, 0)
-      c.toBlob(blob => {
-        func(blob)
-      }, 'image/png')
+async function writeClipImg() {
+  try {
+    if (ClipboardItem.supports("image/svg+xml")) {
+      const imgURL = "https://i.imgur.com/17noUY9.png";
+      const data = await fetch(imgURL);
+      const blob = await data.blob();
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          [blob.type]: blob,
+        }),
+      ]);
+      console.log("Fetched image copied.");
+    } else {
+      console.log("SVG images are not supported by the clipboard.");
     }
-    imgpaint.crossOrigin = 'anonymous';
-    imgpaint.src = img_copy;
+  } catch (err) {
+    console.error(err.name, err.message);
   }
-  setCanvasImage(img_copy_src, (imgBlob) => {
-    navigator.clipboard.write(
-      [
-        new ClipboardItem({ 'image/png': imgBlob })
-      ]
-    )
-      .then(e => { alert('Image copied to clipboard') })
-      .catch(e => { alert(e) })
-  })
-});
-
+}
 
 function download_img(download_img_id) {  //下載圖片
   let cvs = document.createElement('canvas'),
