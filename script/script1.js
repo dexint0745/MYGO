@@ -20,7 +20,7 @@ document.body.onclick = function (event) {
   }
 }
 
-function copy(img_url_id) {  //複製圖片/網址
+/*function copy(img_url_id) {  //複製圖片/網址
   var img_url = document.getElementById(img_url_id).src;
   navigator.clipboard.writeText(img_url)
 
@@ -50,7 +50,7 @@ function copy(img_url_id) {  //複製圖片/網址
       .catch(e => { alert(e) })
   })
 
-}
+}*/
 
 document.querySelector("#copyButton").addEventListener("click", () => {
   /*var img_url = document.getElementById('Img207').src;
