@@ -28,6 +28,10 @@ function copy(img_url_id) {  //複製圖片/網址
       var img_url = document.getElementById(img_url_id).src;
       navigator.clipboard.writeText(img_url)
     }
+    else if (userAgent.indexOf("Line") > -1) {
+      var img_url = document.getElementById(img_url_id).src;
+      navigator.clipboard.writeText(img_url)
+    }
     else if (userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") === -1 && userAgent.indexOf("Edg") === -1) {
       var img_url = document.getElementById(img_url_id).src;
       navigator.clipboard.writeText(img_url)
