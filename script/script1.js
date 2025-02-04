@@ -44,8 +44,8 @@ function copy(img_url_id) {  //複製圖片/網址
           new ClipboardItem({ 'image/png': imgBlob })
         ]
       )
-        .then(e => { console.log('Image copied to clipboard') })
-        .catch(e => { console.log(e) })
+        .then(e => { alert('Image copied to clipboard') })
+        .catch(e => { alert(e) })
     })
   } else {
     var img_url = document.getElementById(img_url_id).src;
