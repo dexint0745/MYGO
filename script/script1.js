@@ -83,7 +83,7 @@ function copy(img_url_id) {  //複製圖片/網址
       navigator.clipboard.writeText(img_url)
     /*}
   }
-  else{
+  else {
     alert('瀏覽器不支援複製圖片/網址')
   }*/
 }
