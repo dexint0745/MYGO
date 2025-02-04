@@ -20,9 +20,43 @@ document.body.onclick = function (event) {
   }
 }
 
-function copy(img_url_id) { //複製圖片網址
+/*function copy(img_url_id) { //複製圖片網址
   var img_url = document.getElementById(img_url_id).src;
   navigator.clipboard.writeText(img_url)
+}*/
+
+/*if (navigator.clipboard) {
+  console.log("您的瀏覽器支持剪貼簿 API！");
+} else {
+  console.log("您的瀏覽器不支持剪貼簿 API。");
+}*/
+
+function copy(img_url_id) {  //複製圖片
+  const imgpaint = new Image;
+  const c = document.createElement('canvas');
+  const ctx = c.getContext('2d');
+  var img_copy_src = document.getElementById(img_url_id).src;
+  function setCanvasImage(img_copy, func) {
+    imgpaint.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0)
+      c.toBlob(blob => {
+        func(blob)
+      }, 'image/png')
+    }
+    imgpaint.crossOrigin = 'anonymous';
+    imgpaint.src = img_copy;
+  }
+  setCanvasImage(img_copy_src, (imgBlob) => {
+    navigator.clipboard.write(
+      [
+        new ClipboardItem({ 'image/png': imgBlob })
+      ]
+    )
+      .then(e => { console.log('Image copied to clipboard') })
+      .catch(e => { console.log(e) })
+  })
 }
 
 function download_img(download_img_id) {  //下載圖片
@@ -132,7 +166,7 @@ function navbar_toggler_click() { //背景點擊關閉navbar-collapse
     document.body.style.overflow = 'visible';
     navbar_toggler_click_bool = true;
   }
-  else{
+  else {
     modal.style.display = "block";
     document.body.style.overflow = 'hidden';
     navbar_toggler_click_bool = false;
